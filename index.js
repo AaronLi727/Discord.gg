@@ -53,8 +53,4 @@ app.use('/user',userRouter)
 app.listen(PORT, function(){
   console.log(`Listening on ${PORT}`)
 })
-  //token : MTAwMTY2ODQ4NTc1NzI5MjU3NA.Gm2YE8.L7tBM9KAdcPXThgBbS2kzaZqyvrcaAvHBZQk5I
-  //id : 476261769849864192
-  //id: 170667250070716419
 
-  
