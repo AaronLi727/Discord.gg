@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- contains css file, bootstrap and title (change titles for each ejs)-->
+    <%- include ("../partials/header.ejs") %>
+</head>
+<body>
+    <div class="container">
+        <%- include ("../partials/nav.ejs") %>
+        <div class="first hero">
+            <img class="hero-profile-img"
+                src="https://cdn.discordapp.com/banners/<%- id %>/<%- banner %>?size=1024" alt="">
+            <div class="hero-description-bk"></div>
+            <div class="hero-logo">
+                <img src="https://cdn.discordapp.com/avatars/<%- id %>/<%- avatar %>" alt="">
+            </div>
+            <div class="hero-description">
+                <p>
+                    <% if (locals.badge) { %>
+                        <img src="/badges/<%- badge%>.png?size=1024">
+                    <% } %>
+                    <%- username %>#<%- discriminator%>
+                </p>
+            </div>
+            <div class="hero-date">
+                <p>Creation Date: <%- date %></p>
+            </div>
+            <div class="hero-btn">
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+        <div class="userbox">
+            <h1>
+                id: <%- id %>
+                    </br>
+                    username :<%- username %> # <%- discriminator %>
+            
+                            <% if (locals.banner) { %>
+                                </br>
+                                    <img src="https://cdn.discordapp.com/banners/<%- id %>/<%- banner %>" width='500' height="300">
+                                    <% } %>
+            
+                                        </br>
+                                        accent: <%- accent %>
+                                            </br>
+            
+                                            <text style="color:<%- bancolor %>"> hi </text>
+            
+            </h1>
+            
+            <img src="/badges/<%- badge%>.png?size=1024"
+                onerror='this.onerror=null;this.src="https://invitation.codes/img/default_avatar.png"'>
+            <img src="https://cdn.discordapp.com/avatars/<%- id %>/<%- avatar %>" width='500' height='300'></img>
+           
+            <h1 style="color: #<%- accent%>">
+                hi
+            </h1>
+        </div>
+    </div>    
+</body>
+
+</html>
