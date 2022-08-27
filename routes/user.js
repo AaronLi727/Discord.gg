@@ -32,31 +32,51 @@ router.get('/', function(req, res, next) {
     //     })
     // console.log(transapi.)
     // console.log(res.data(transapi.getUserInfo(req.query.userid)))
-    if (Object.keys(req.query).length === 0){
-        console.log('You need to specify a user')
-        res.render('pages/search')
-    }else{
-        id = req.query.userid
-        transapi.getAllData(id)
-            .then(async function (i) {
-                res.render('pages/user', {
-                    id: i.id,
-                    username: i.username,
-                    discriminator: i.discriminator,
-                    avatar: i.avatar,
-                    banner: i.banner,
-                    bancolor: i.bancolor,
-                    accent: i.accent,
-                    badge: i.badge,
-                    date: i.date
-                })
+    // if (Object.keys(req.query).length === 0){
+    //     console.log('You need to specify a user')
+    //     res.render('pages/search')
+    // }else{
+    //     id = req.query.userid
+    //     transapi.getAllData(id)
+    //         .then(async function (i) {
+    //             res.render('pages/user', {
+    //                 stats: i.stats,
+    //                 id: i.id,
+    //                 username: i.username,
+    //                 discriminator: i.discriminator,
+    //                 avatar: i.avatar,
+    //                 banner: i.banner,
+    //                 bannercolor: i.bannercolor,
+    //                 badge: i.badge,
+    //                 date: i.date
+    //             })
+    //         })
+    //         .catch(function(error){
+    //             console.log('Unknown User, Try Again')
+    //             res.render('pages/search')
+    //         })
+    //     //maybe send data to router below 
+    // }
+    id = req.query.userid
+
+    transapi.getAllData(id)
+        .then(async function(i) {
+            res.render('pages/user', {
+                stats: i.stats,
+                id: i.id,
+                username: i.username,
+                discriminator: i.discriminator,
+                avatar: i.avatar,
+                banner: i.banner,
+                bannercolor: i.bannercolor,
+                badge: i.badge,
+                date: i.date
             })
-            .catch(function(error){
-                console.log('Unknown User, Try Again')
-                res.render('pages/search')
-            })
-        //maybe send data to router below 
-    }
+        })
+        .catch(function(error){
+            console.log('Not a valid user')
+            res.render('pages/user')
+        })
     
     // res.send(transapi.getUserInfo(input))
    

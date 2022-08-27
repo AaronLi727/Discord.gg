@@ -6,56 +6,74 @@
 </head>
 <body>
     <div class="container">
-        <%- include ("../partials/nav.ejs") %>
-        <div class="first hero">
-            <img class="hero-profile-img"
-                src="https://cdn.discordapp.com/banners/<%- id %>/<%- banner %>?size=1024" alt="">
-            <div class="hero-description-bk"></div>
-            <div class="hero-logo">
-                <img src="https://cdn.discordapp.com/avatars/<%- id %>/<%- avatar %>" alt="">
+        <section class="info-wrapper">       
+            <div class="user__search-wrapper">
+                <h1 class="user__title">Welcome to DiscTracker!</h1>
+                <form class="user__group">
+                    <input type="text" id="userid" name="userid" placeholder="Enter User/Bot ID" class="user__search"></input>
+                    <input type="submit" value="Search" class="button is-form user__button"></input>
+                </form>                         
             </div>
-            <div class="hero-description">
-                <p>
-                    <% if (locals.badge) { %>
-                        <img src="/badges/<%- badge%>.png?size=1024">
-                    <% } %>
-                    <%- username %>#<%- discriminator%>
-                </p>
+            <% if (locals.stats == 200) { %>
+            <div class="user">
+                <% if (locals.banner) { %>
+                    <a href="https://cdn.discordapp.com/banners/<%- id %>/<%- banner %>?size=1024" target="_blank">
+                        <img class="user-profile-img"
+                        src="https://cdn.discordapp.com/banners/<%- id %>/<%- banner %>?size=1024" alt="">
+                    </a>
+                <% } %>
+                <div class="user-container">
+                    <div class="inline">
+                        <%if (locals.avatar) { %>
+                        <a href="https://cdn.discordapp.com/avatars/<%- id %>/<%- avatar %>?size=1024" target="_blank">
+                        <% } else { %>
+                        <a href="../discord-avatar.png" target="_blank">
+                        <% } %>
+                            <div class="user-logo">
+                                <img src="https://cdn.discordapp.com/avatars/<%- id %>/<%- avatar %>" alt=""
+                                onerror="this.onerror=null;this.src='../discord-avatar.png';">
+                            </div>
+                        </a>
+                        <div class="user-description">
+                            <p>
+                                <% if (locals.badge  != 'None') { %>
+                                    <img src="/badges/<%- badge%>.png?size=1024">
+                                <% } %>
+                                <%- username %>#<%- discriminator%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="info-container">
+                        <div class="user-date">
+                            <p>Creation Date: <%- date %>
+                            </p>
+                        </div>
+                        <% if (locals.bannercolor) { %>
+                        <div class="pill-btn">
+                            <p>Banner Color: <span style="color:<%- bannercolor %>"><%- bannercolor %> </span></p>
+                            <!-- <p style="color: <%-bannercolor%>; border:1px solid <%- bannercolor %>; border-radius:20px; padding:10px;"><%- bannercolor %></p> -->
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
             </div>
-            <div class="hero-date">
-                <p>Creation Date: <%- date %></p>
-            </div>
-            <div class="hero-btn">
-                <a href="#">Learn More</a>
-            </div>
-        </div>
-        <div class="userbox">
-            <h1>
-                id: <%- id %>
-                    </br>
-                    username :<%- username %> # <%- discriminator %>
-            
-                            <% if (locals.banner) { %>
-                                </br>
-                                    <img src="https://cdn.discordapp.com/banners/<%- id %>/<%- banner %>" width='500' height="300">
-                                    <% } %>
-            
-                                        </br>
-                                        accent: <%- accent %>
-                                            </br>
-            
-                                            <text style="color:<%- bancolor %>"> hi </text>
-            
-            </h1>
-            
-            <img src="/badges/<%- badge%>.png?size=1024"
-                onerror='this.onerror=null;this.src="https://invitation.codes/img/default_avatar.png"'>
-            <img src="https://cdn.discordapp.com/avatars/<%- id %>/<%- avatar %>" width='500' height='300'></img>
-           
-            <h1 style="color: #<%- accent%>">
-                hi
-            </h1>
-        </div>
+            <% } %>
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+        <section class="bot-wrapper">
+            <%- include ("../partials/bot.ejs") %>
+        </section>
     </div>    
 </body>
 
