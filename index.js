@@ -30,16 +30,16 @@ app.set('view engine', 'ejs')
 
 
 //create url endpoints
-app.get('/', function(req,res) {
-  res.render('pages/index')
-})
+// app.get('/', function(req,res) {
+//   res.render('pages/index')
+// })
 
 //remove this function for testing endpoints
-app.get('/cool', function(req, res){
-  res.send(cool())
-})
+// app.get('/cool', function(req, res){
+//   res.send(cool())
+// })
 
-app.use('/user',userRouter)
+app.use('/',userRouter)
 
 // app.use(function(req, res, next){
 //   res.locals.message = err.message
