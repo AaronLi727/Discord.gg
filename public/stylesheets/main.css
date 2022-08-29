@@ -45,6 +45,38 @@ html, body {
   padding-left:1rem;
 }
 
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes octocat-wave {
+
+  0%,
+  100% {
+    transform: rotate(0)
+  }
+
+  20%,
+  60% {
+    transform: rotate(-25deg)
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg)
+  }
+}
+
+@media (max-width:500px) {
+  .github-corner:hover .octo-arm {
+    animation: none
+  }
+
+  .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out
+  }
+}
 
 .info-wrapper {
   position: relative;
@@ -107,7 +139,9 @@ html, body {
 
 .user__title {
   margin: 0 0 2rem;
-  font-size: 3rem
+  font-size: 3rem;
+  font-weight:900;
+  color:#5865F2;
 }
 
 /* @media only screen and (max-width:1000px) {
@@ -162,7 +196,9 @@ html, body {
 }
 
 .user__button {
-  background: white;
+  background: #5865F2;
+  color:white;
+  font-size: 20px;
 }
 
 .user__search::-moz-placeholder {
@@ -490,3 +526,13 @@ html, body {
   font-size: 1.2rem;
 }
 
+.text-uppercase{
+  text-align: center;
+  color:#5865F2;
+  font-weight: 900;
+}
+
+.card .btn{
+  background-color: #5865F2;
+  border-color: none;
+}
